@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>이미지 업로드</title>
+  <link rel="stylesheet" href="imageUpload.css" />
+</head>
+<body>
+  <div class="upload-container">
+    <h2>이미지 업로드</h2>
+    <input type="text" id="image-name" placeholder="이미지 이름을 입력하세요" />
+    <input type="file" id="image-file" accept="image/*" />
+    <div id="preview"></div>
+    <button id="upload-btn">업로드 및 분석</button>
+  </div>
+
+  <script type="module" src="imageUpload.js"></script>
+</body>
+</html>

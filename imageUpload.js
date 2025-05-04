@@ -33,7 +33,7 @@ document.getElementById('upload-btn').addEventListener('click', async () => {
   }
 
   try {
-    const fileRef = storageRef(storage, `images/${Date.now()}_${imageFile.name}`);
+    const fileRef = storageRef(storage, `uploads/${Date.now()}_${imageFile.name}`);
     const snapshot = await uploadBytes(fileRef, imageFile);
     const downloadURL = await getDownloadURL(snapshot.ref);
 
@@ -41,7 +41,9 @@ document.getElementById('upload-btn').addEventListener('click', async () => {
       name: imageName,
       url: downloadURL,
       timestamp: Date.now(),
+      userId: auth.currentUser.uid  // 👈 이 줄 추가!
     });
+    
 
     const query = `?name=${encodeURIComponent(imageName)}&url=${encodeURIComponent(downloadURL)}`;
     window.location.href = `imageFeedback.html${query}`;
